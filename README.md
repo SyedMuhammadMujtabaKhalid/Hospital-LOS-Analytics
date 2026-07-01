@@ -7,6 +7,15 @@
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML_Pipeline-F7931E?style=for-the-badge&logo=scikit-learn)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
+## 💡 Key Finding
+
+> **Although an XGBoost model was trained, predictive performance remained poor (R² < 0).**
+>
+> Further analysis revealed that Length of Stay (LOS) in this dataset has negligible correlation with available patient attributes, indicating limited predictive signal.
+>
+> This project demonstrates an important data science principle:
+> **A sophisticated machine learning model cannot create predictive power when the underlying data contains little or no predictive signal.**
+
 ## 📑 Table of Contents
 
 - [Project Overview](#-project-overview)
@@ -108,13 +117,21 @@ Implemented via the `add_smart_features` function:
 
 **Finding:** All correlations are effectively **zero**. The LOS distribution is near-uniform (1–10 days), confirming that `AdmissionDate` and `DischargeDate` were generated **independently** of clinical features. This is consistent with the dataset being designed for data cleaning exercises, not predictive modelling.
 
+![Signal Assessment](images/signal_assessment.png)
+
 ## 📈 Exploratory Data Analysis & Visualizations
 
 Five interactive **Plotly** dashboards were generated:
 
 1. **Average LOS by Diagnosis** — Horizontal bar chart with `Reds` color scale identifying conditions with the longest average stays (Atrial Fibrillation leads at ~5.74 days).
+<p align="center"><img src="images/los_by_diagnosis.png" width="800"></p>
+
 2. **Heatmap: Diagnosis vs Age Group** — Normalized crosstab showing how diagnoses are distributed across age groups using `Viridis` color scale.
+<p align="center"><img src="images/heatmap.png" width="800"></p>
+
 3. **Hospital Performance: Volume vs Average LOS** — Bubble scatter plot mapping hospital patient volume against average LOS across 90 hospitals.
+<p align="center"><img src="images/hospital_dashboard.png" width="800"></p>
+
 4. **Seasonal Diagnosis Distribution** — Stacked bar chart showing monthly admission trends across all 14 diagnoses.
 5. **Key Drivers of Length of Stay** — Horizontal bar chart of XGBoost feature importances with `Greens` color scale.
 
