@@ -1,4 +1,4 @@
-# 🏥 Hospital LOS Analytics & Prediction
+# 🏥 Hospital Length of Stay (LOS) Analytics & Data Quality Assessment
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python)
 ![Pandas](https://img.shields.io/badge/Pandas-Data_Manipulation-150458?style=for-the-badge&logo=pandas)
@@ -9,7 +9,7 @@
 
 ## 💡 Key Finding
 
-> **Although an XGBoost model was trained, predictive performance remained poor (R² < 0).**
+> **Predictive performance remained poor (R² = -0.04), leading to a deeper investigation into data quality and feature-target relationships.**
 >
 > Further analysis revealed that Length of Stay (LOS) in this dataset has negligible correlation with available patient attributes, indicating limited predictive signal.
 >
@@ -43,7 +43,18 @@
 
 ## 🚀 Project Overview
 
+```mermaid
+flowchart TD
+    A[Raw Data] --> B[Data Cleaning]
+    B --> C[Feature Engineering]
+    C --> D[Signal Assessment]
+    D --> E[Baseline ML]
+    E --> F[Business Insights]
+```
+
 This project demonstrates a **complete healthcare data science pipeline**: data cleaning, feature engineering, signal assessment, machine learning, and interactive visualization — applied to hospital patient records for Length of Stay (LOS) analysis.
+
+This project demonstrates not only how to build machine learning models, but also how to determine when machine learning is inappropriate due to insufficient predictive signal.
 
 A key outcome of this project is the critical finding that the dataset's LOS values are **synthetically generated** and carry no predictive signal. Rather than hiding this result, the notebook walks through the rigorous analytical process a Senior Data Scientist uses to detect and report such findings.
 
@@ -169,12 +180,9 @@ A negative R² means the model performs worse than simply predicting the average
 
 ## 💡 Key Insights
 
-1. **Admission Day of Week** is the strongest driver of LOS according to XGBoost feature importance (~0.215).
-2. **Age** (~0.205) and **Diagnosis** (~0.198) are the next most important features.
-3. **Gender** (~0.197) and **Month** (~0.185) have a lower but measurable contribution.
-4. Feature importances are **nearly uniform** — further evidence that the model is fitting noise rather than real patterns.
-5. **Atrial Fibrillation** has the highest average LOS (~5.74 days), while **Acute Bronchitis** has the lowest (~5.27 days) — a clinically negligible difference of ~0.5 days.
-6. **Senior** and **Adult** age groups dominate admissions across all diagnoses.
+1. **Although Admission Day of Week received the highest feature importance score, all feature importances were relatively uniform, suggesting the model was fitting noise rather than meaningful clinical relationships.**
+2. **Atrial Fibrillation** has the highest average LOS (~5.74 days), while **Acute Bronchitis** has the lowest (~5.27 days) — a clinically negligible difference of ~0.5 days.
+3. **Senior** and **Adult** age groups dominate admissions across all diagnoses.
 
 ## 🛠️ Technologies Used
 
@@ -238,6 +246,7 @@ Run the cells sequentially to reproduce the full pipeline:
 ## 🔮 Future Improvements
 
 - **Real-World Dataset:** Apply this pipeline to a clinically-linked dataset (e.g., MIMIC-III) where LOS correlates with diagnoses, vitals, and lab results.
+- **Signal Validation:** Validate whether clinically meaningful LOS predictors exist before model development.
 - **Model Optimization:** Hyperparameter tuning via GridSearchCV / Optuna on a dataset with actual signal.
 - **Additional Algorithms:** Benchmark Random Forest, LightGBM, and Ridge Regression.
 - **Deployment:** Build a Streamlit dashboard for real-time LOS prediction and hospital analytics.
