@@ -41,7 +41,7 @@
 
 ---
 
-## 🚀 Project Overview
+##  Project Overview
 
 ```mermaid
 flowchart TD
@@ -58,7 +58,7 @@ This project demonstrates not only how to build machine learning models, but als
 
 A key outcome of this project is the critical finding that the dataset's LOS values are **synthetically generated** and carry no predictive signal. Rather than hiding this result, the notebook walks through the rigorous analytical process a Senior Data Scientist uses to detect and report such findings.
 
-## 🎯 Problem Statement
+##  Problem Statement
 
 Hospital resource management depends on accurately forecasting patient Length of Stay (LOS). This project builds an end-to-end pipeline to:
 
@@ -68,7 +68,7 @@ Hospital resource management depends on accurately forecasting patient Length of
 4. Train and evaluate an XGBoost baseline model.
 5. Generate interactive dashboards for hospital performance analytics.
 
-## 📊 Dataset Overview
+## Dataset Overview
 
 | Property | Detail |
 | --- | --- |
@@ -77,7 +77,7 @@ Hospital resource management depends on accurately forecasting patient Length of
 | **Purpose** | Originally designed as a **data cleaning exercise** |
 | **Key Columns** | PatientID, Age, Gender, Diagnosis, AdmissionDate, DischargeDate, HospitalID |
 
-## 🔄 Project Workflow
+##  Project Workflow
 
 The notebook is organized into **six clearly labelled phases**:
 
@@ -90,7 +90,7 @@ Phase 5 → Machine Learning Baseline (XGBoost)
 Phase 6 → Professional Insights & Visualizations
 ```
 
-## 🧹 Data Cleaning Process
+##  Data Cleaning Process
 
 Implemented inside the Object-Oriented `HospitalDataManager` class:
 
@@ -101,7 +101,7 @@ Implemented inside the Object-Oriented `HospitalDataManager` class:
 - Removed duplicate patient records.
 - Standardized `Diagnosis` text to Title Case for consistency.
 
-## ⚙️ Feature Engineering
+##  Feature Engineering
 
 Implemented via the `add_smart_features` function:
 
@@ -114,7 +114,7 @@ Implemented via the `add_smart_features` function:
 | `Diagnosis_Enc` | Label Encoded | Prepare categorical for ML |
 | `Gender_Enc` | Label Encoded | Prepare categorical for ML |
 
-## 🔍 Data Quality & Signal Assessment
+##  Data Quality & Signal Assessment
 
 **Before training any model**, a correlation analysis was performed to verify whether features carry predictive signal:
 
@@ -146,7 +146,7 @@ Five interactive **Plotly** dashboards were generated:
 4. **Seasonal Diagnosis Distribution** — Stacked bar chart showing monthly admission trends across all 14 diagnoses.
 5. **Key Drivers of Length of Stay** — Horizontal bar chart of XGBoost feature importances with `Greens` color scale.
 
-## 🤖 Machine Learning Pipeline
+##  Machine Learning Pipeline
 
 | Component | Detail |
 | --- | --- |
@@ -164,7 +164,7 @@ Five interactive **Plotly** dashboards were generated:
 | **Mean Absolute Error (MAE)** | 2.58 days |
 | **R² Score** | -0.04 |
 
-## 🚨 Critical Data Science Insight
+##  Critical Data Science Insight
 
 The negative R² is **not a failure — it is the correct answer.**
 
@@ -184,7 +184,7 @@ A negative R² means the model performs worse than simply predicting the average
 2. **Atrial Fibrillation** has the highest average LOS (~5.74 days), while **Acute Bronchitis** has the lowest (~5.27 days) — a clinically negligible difference of ~0.5 days.
 3. **Senior** and **Adult** age groups dominate admissions across all diagnoses.
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 | Category | Tools |
 | --- | --- |
@@ -230,7 +230,7 @@ venv\Scripts\activate           # Windows
 pip install -r requirements.txt
 ```
 
-## 🚀 Usage Instructions
+##  Usage Instructions
 
 ```bash
 # Launch the notebook
@@ -243,7 +243,7 @@ Run the cells sequentially to reproduce the full pipeline:
 3. **Phase 5:** XGBoost baseline model training and evaluation.
 4. **Phase 6:** Interactive Plotly dashboards and business insights.
 
-## 🔮 Future Improvements
+## Future Improvements
 
 - **Real-World Dataset:** Apply this pipeline to a clinically-linked dataset (e.g., MIMIC-III) where LOS correlates with diagnoses, vitals, and lab results.
 - **Signal Validation:** Validate whether clinically meaningful LOS predictors exist before model development.
@@ -252,15 +252,15 @@ Run the cells sequentially to reproduce the full pipeline:
 - **Deployment:** Build a Streamlit dashboard for real-time LOS prediction and hospital analytics.
 - **Feature Expansion:** Incorporate comorbidity indices, medication data, and prior admission history.
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to open an issue or submit a pull request.
 
-## 📜 License
+##  License
 
 This project is licensed under the [MIT License](LICENSE).
 
-## 👤 Author
+##  Author
 
 **Syed Muhammad Mujtaba Khalid**
 
