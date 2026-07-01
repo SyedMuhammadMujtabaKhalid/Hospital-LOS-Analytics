@@ -52,7 +52,7 @@ flowchart TD
     E --> F[Business Insights]
 ```
 
-This project demonstrates a **complete healthcare data science pipeline**: data cleaning, feature engineering, signal assessment, machine learning, and interactive visualization — applied to hospital patient records for Length of Stay (LOS) analysis.
+This project demonstrates a **complete healthcare data science pipeline**: data cleaning, feature engineering, signal assessment, machine learning, and interactive visualization applied to hospital patient records for Length of Stay (LOS) analysis.
 
 This project demonstrates not only how to build machine learning models, but also how to determine when machine learning is inappropriate due to insufficient predictive signal.
 
@@ -166,7 +166,7 @@ Five interactive **Plotly** dashboards were generated:
 
 ##  Critical Data Science Insight
 
-The negative R² is **not a failure — it is the correct answer.**
+The negative R² is **not a failure, it is the correct answer.**
 
 A negative R² means the model performs worse than simply predicting the average LOS (~5.47 days) for every patient. This happened because:
 
@@ -176,12 +176,12 @@ A negative R² means the model performs worse than simply predicting the average
 | LOS Distribution | Near-uniform (1–10 days) | Synthetically generated, not clinically realistic |
 | Dataset Purpose | Kaggle "Data Cleaning" dataset | Designed for cleaning exercises, not prediction |
 
-**Professional Takeaway:** A Senior Data Scientist's job is not just to build models — it is to know when data lacks signal and to communicate that finding clearly. Blindly reporting a high MAE without this context would be a red flag in a professional setting.
+**Professional Takeaway:** A Senior Data Scientist's job is not just to build models it is to know when data lacks signal and to communicate that finding clearly. Blindly reporting a high MAE without this context would be a red flag in a professional setting.
 
 ## 💡 Key Insights
 
 1. **Although Admission Day of Week received the highest feature importance score, all feature importances were relatively uniform, suggesting the model was fitting noise rather than meaningful clinical relationships.**
-2. **Atrial Fibrillation** has the highest average LOS (~5.74 days), while **Acute Bronchitis** has the lowest (~5.27 days) — a clinically negligible difference of ~0.5 days.
+2. **Atrial Fibrillation** has the highest average LOS (~5.74 days), while **Acute Bronchitis** has the lowest (~5.27 days)  a clinically negligible difference of ~0.5 days.
 3. **Senior** and **Adult** age groups dominate admissions across all diagnoses.
 
 ##  Technologies Used
@@ -239,7 +239,7 @@ jupyter notebook notebook/los-analysis-and-prediction.ipynb
 
 Run the cells sequentially to reproduce the full pipeline:
 1. **Phase 1–3:** Data cleaning and feature engineering.
-2. **Phase 4:** Signal assessment — verify feature-target correlations.
+2. **Phase 4:** Signal assessment verify feature-target correlations.
 3. **Phase 5:** XGBoost baseline model training and evaluation.
 4. **Phase 6:** Interactive Plotly dashboards and business insights.
 
